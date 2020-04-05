@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 ## -*- coding: utf-8 -*-
 
+#we import the module to work with colors
+from termcolor import colored
+
 #company logo
-logo = """
+logo = colored("""
 here                                               ▄▄▄▄▄▄`
     you                                         ▄██▀▀╙╙▀▀██▄
         can                                   ▄███        ╙██
@@ -23,17 +26,24 @@ Garcia               ██     ▐██     ▄██▀
 UwU                ╓███▄      L███▀┘
                    ██┐▐███████▀▀▀`
                   ▐███▀▀▀╙-                           »
-"""
+""", "yellow")
 
 #we create a funtion to ask questions
 def ask(data_list, value):
-    print("\npreciona enter para pasar a la siguiente pregunta")
-    if input("Usar {}?: ".format(value)):
+    #we show a message if you want to skip the cuestion
+    print(colored("\npreciona enter para pasar a la siguiente pregunta", "red"))
+    #if the user didn't skip the cuestion
+    if input(colored("Usar {}?: ".format(value), "green")):
         while True:
-            information = input("\nIngresa {}: ".format(value))
+            #we ask information
+            information = input(colored("\nIngresa {}: ".format(value), "blue"))
+            #if the information isn't empty
             if information != "":
+                #we add the information
                 data_list.append(information)
+            #if no
             else:
+                #get out of the bluce
                 break
 
 #we generate a main funtion
@@ -50,9 +60,11 @@ def main():
     "dia de aniversario", "mes de aniversario", "año de aniversario"]
     #we begin with the asks to generate the word list
     for topic in asks:
+        #we ask the information
         ask(data, topic)
     #show our word list
     print(data)
 #we create an access point
 if __name__ == '__main__':
+    #we call our main funtion
     main()
