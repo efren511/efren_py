@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-## -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 #we import the module to work with colors
 from termcolor import colored
